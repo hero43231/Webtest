@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Shoe Store - About Me</title>
+    <script src="https://kit.fontawesome.com/22563108c1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="cart-page">
+
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="templates/joylogo.jfif" alt="Joy Store Logo" class="logo-image">
+        </a>
+    </div>
+    
+    <div class="searchbar">
+        <input type="text" placeholder="Хайх..." class="search-input">
+        <button class="search-button">Search</button>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="containerC">
+    <div id="root"></div>
+    <div class="sidebar">
+        <div class="headC"><h2>My Cart</h2></div>
+        <div id="cartItem">Таны сагс хоосон байна</div>
+        <div class="foot">
+            <h3> Нийт </h3>
+            <h2 id="total"> $ 0.00 </h2>
+        </div>
+        <button-c id="confirmButton" class="confirm-button" onclick="confirmCart()">Confirm</button-c>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Joy Store</p>
+    <p>Хаяг: БЗД 25р хороо, Нарны зам, Түмэн Малл, 6р давхар</p>
+    <p>Холбогдох дугаар: 99819171</p>
+    <a href="https://www.facebook.com/profile.php?id=100032105574448" target="_blank">
+        <img src="templates/Facebook_Logo.png" alt="Facebook" class="social-icon">
+    </a>
+</footer>
+
+<script>
+    const products = [
+        {
+            id: 0,
+            image: 'templates/hargutal.jpg',
+            title: 'Har gutal',
+            price: 120
+        },
+        {
+            id: 1,
+            image: 'templates/hargutal.jpg',
+            title: 'Har gutal',
+            price: 100
+        },
+        {
+            id: 2,
+            image: 'templates/hargutal.jpg',
+            title: 'Har gutal',
+            price: 999
+        },
+        {
+            id: 3,
+            image: 'templates/hargutal.jpg',
+            title: 'Har gutal',
+            price: 500
+        }
+    ];
+
+    let cart = [];
+
+    function addToCart(index) {
+        const product = products[index];
+        const existingProduct = cart.find(item => item.id === product.id);
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+        displayCartDetails();
+    }
+
+    function displayCartDetails() {
+        let cartItems = document.getElementById('cartItem');
+        let total = document.getElementById('total');
+        let totalPrice = 0;
+        cartItems.innerHTML = '';
+        if (cart.length === 0) {
+            cartItems.innerHTML = "Таны сагс хоосон байна";
+        } else {
+            cart.forEach((item, index) => {
+                cartItems.innerHTML += `
+                    <div class='cart-item'>
+                        <div class='row-image'>
+                            <img class='rowimg' src="${item.image}" alt="${item.title}">
+                        </div>
+                        <p style='font-size:12px;'>${item.title} (${item.quantity})</p>
+                        <h2 style='font-size:15px;'>$ ${item.price * item.quantity}.00</h2>
+                        <i class='fa-solid fa-trash' onclick='delElement(${index})'></i>
+                    </div>
+                `;
+                totalPrice += item.price * item.quantity;
+            });
+        }
+        total.innerText = `$ ${totalPrice.toFixed(2)}`;
+    }
+
+    function delElement(index) {
+        cart.splice(index, 1);
+        displayCartDetails();
+    }
+
+    function confirmCart() {
+        alert('Таны захиалга баталгаажлаа.');
+        cart = [];
+        displayCartDetails();
+    }
+
+    document.getElementById('root').innerHTML = products.map((item, index) => {
+        return `
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="${item.image}" alt="${item.title}">
+                </div>
+                <div class='bottom'>
+                    <p>${item.title}</p>
+                    <h2>$ ${item.price}.00</h2>
+                    <button-c onclick='addToCart(${index})'>Add to cart</button-c>
+                </div>
+            </div>
+        `;
+    }).join('');
+</script>
+
+</body>
+</html>
