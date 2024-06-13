@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Shoe Store - Product</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="product-page">
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="templates/joylogo.jfif" alt="Joy Store Logo" class="logo-image">
+            </a>
+        </div>
+        
+        <div class="searchbar-container">
+            <div class="searchbar">
+                <input type="text" id="search-bar" placeholder="Хайх..." class="search-input" autocomplete="off">
+                <button class="search-button">Search</button>
+            </div>
+            
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-detail">
+            <div class="product-image">
+                <img id="main-product-image" src="templates/hargutal.jpg" alt="Product Image">
+                <div class="thumbnail-album">
+                    <img src="templates/hargutal.jpg" alt="Thumbnail 1" onclick="changeImage(this)">
+                    <img src="templates/gutal1.jfif" alt="Thumbnail 2" onclick="changeImage(this)">
+                    <img src="templates/gutal2.jfif" alt="Thumbnail 3" onclick="changeImage(this)">
+                </div>
+            </div>
+            <div class="product-info">
+                <h1>Хар Гутал</h1>
+                <p>$19.99</p>
+                <div class="product-options">
+                    <div class="size-options">
+                        <h3>Хэмжээ</h3>
+                        <div class="size-squares">
+                            <div class="size-square" onclick="changeSize('38')">38</div>
+                            <div class="size-square" onclick="changeSize('39')">39</div>
+                            <div class="size-square" onclick="changeSize('40')">40</div>
+                            <div class="size-square" onclick="changeSize('41')">41</div>
+                            <div class="size-square" onclick="changeSize('42')">42</div>
+                        </div>
+                    </div>
+                    <div class="color-options">
+                        <h3>Өнгө:</h3>
+                        <div class="color-squares">
+                            <div class="color-square" style="background-color: black;" onclick="changeColor('black')"></div>
+                            <div class="color-square" style="background-color: white;"></div>
+                            <div class="color-square" style="background-color: red;"></div>
+                            <div class="color-square" style="background-color: blue;"></div>
+                        </div>
+                    </div>
+                    <div class="product-tailbar">
+                        <h3>Барааны тайлбар:</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <button class="add-to-cart-button">Add to Cart</button>
+            </div>
+        </section>
+
+       
+        
+        <section class="related-products">
+            <h2>Адил бараанууд</h2>
+            <div class="related-product-slider">
+                <div class="related-product">
+                    <img src="templates/gutal1.jfif" alt="Related Product 1">
+                    <p>Product Name</p>
+                </div>
+                <div class="related-product">
+                    <img src="templates/gutal2.jfif" alt="Related Product 2">
+                    <p>Product Name</p>
+                </div>
+                <div class="related-product">
+                    <img src="templates/gutal3.jfif" alt="Related Product 3">
+                    <p>Product Name</p>
+                </div>
+                <div class="related-product">
+                    <img src="templates/gutal4.jfif" alt="Related Product 4">
+                    <p>Product Name</p>
+                </div>
+                <div class="related-product">
+                    <img src="templates/gutal5.jfif" alt="Related Product 5">
+                    <p>Product Name</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Joy Store</p>
+        <p>Хаяг: БЗД 25р хороо, Нарны зам, Түмэн Малл, 6р давхар</p>
+        <p>Холбогдох дугаар: 99819171</p>
+        <a href="https://www.facebook.com/profile.php?id=100032105574448" target="_blank">
+            <img src="templates/Facebook_Logo.png" alt="Facebook" class="social-icon">
+        </a>
+    </footer>
+</body>
+</html>
